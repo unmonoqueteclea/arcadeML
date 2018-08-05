@@ -1,0 +1,26 @@
+[build-system]
+# These are the assumed default build requirements from pip:
+# https://pip.pypa.io/en/latest/cli/pip/#pep-517-and-518-support
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 80
+target-version = ['py39']
+exclude =  "migrations|\\.eggs"
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.messages_control]
+disable = "C0330, C0326"
+
+[tool.pylint.format]
+max-line-length = "81"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+
+[tool.mypy]
+ignore_missing_imports = true
